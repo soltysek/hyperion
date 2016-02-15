@@ -11,6 +11,11 @@ class BookmarkEmptyCommand(sublime_plugin.TextCommand):
             sels.clear()
             sels.add(region)
             self.view.run_command('toggle_bookmark')
+        regions = view.find_all('msgstr\[0] ""\n')
+        for region in regions:
+            sels.clear()
+            sels.add(region)
+            self.view.run_command('toggle_bookmark')
             
 class BookmarkFuzzyCommand(sublime_plugin.TextCommand):  
     def run(self, edit):
